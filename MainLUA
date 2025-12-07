@@ -612,7 +612,9 @@ function OrionLib:MakeWindow(WindowConfig)
 		WindowIcon.Parent = MainWindow.TopBar
 	end	
 
-	MakeDraggable(DragPoint, MainWindow)
+	task.spawn(function()
+		MakeDraggable(DragPoint, MainWindow)
+	end)
 
 	local MobileReopenButton = SetChildren(SetProps(MakeElement("Button"), {
 		Parent = Orion,
